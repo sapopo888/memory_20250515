@@ -43,6 +43,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rubocop"
+  gem "faker"
 end
 
 group :development do
@@ -57,3 +60,4 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 3.3.1"
+gem "devise"
