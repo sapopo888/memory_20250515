@@ -7,6 +7,13 @@ ja:
   label:
     title: タイトル
     description: 説明
+  header:
+    albums:
+      index: アルバム一覧
+      new: アルバム作成
+    myPage: マイページ
+    account: 会員情報
+    logout: ログアウト
   albums:
     new:
       title: アルバム作成
