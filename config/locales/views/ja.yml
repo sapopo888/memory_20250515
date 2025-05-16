@@ -4,9 +4,12 @@ ja:
     edit: 編集
     show: 詳細
     delete: 削除
+    upload: アップロード
   label:
     title: タイトル
     description: 説明
+    images: 画像（複数アップロード可）
+    comment: コメント
   header:
     albums:
       index: アルバム一覧
@@ -18,6 +21,8 @@ ja:
   albums:
     new:
       title: アルバム作成
+  photos:
+
   errors:
     messages:
       blank: を入力してください。
