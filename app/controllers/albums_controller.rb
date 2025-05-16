@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new(album_params)
     if @album.save
-      redirect_to albums_path, status: :see_other, notice: "アルバムを作成しました"
+      redirect_to new_album_photo_path(@album), status: :see_other, notice: "アルバムを作成しました"
     else
     flash.now[:alert] = "アルバムを作成できませんでした"
     render :new, status: :unprocessable_entity # 作成失敗したエラーメッセージを表示するのに必要
