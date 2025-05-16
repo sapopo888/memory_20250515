@@ -4,6 +4,12 @@ ja:
     edit: 編集
     show: 詳細
     delete: 削除
+  label:
+    title: タイトル
+    description: 説明
+  albums:
+    new:
+      title: アルバム作成
   errors:
     messages:
       blank: を入力してください。

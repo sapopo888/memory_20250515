@@ -1,3 +1,8 @@
 ja:
   activerecord:
-  
+    models:
+      album: アルバム
+    attributes:
+      album:
+        title: タイトル
+        description: 説明
