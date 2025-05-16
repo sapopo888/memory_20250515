@@ -20,7 +20,7 @@
             <%= t('header.myPage') %>
           </button>
           <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
-            <div class="block px-4 py-2 text-blue-900 font-bold underline"><%= current_user.name %> さん</div>
+            <div class="block px-4 py-2 text-blue-900 font-bold underline"><%= "#{current_user.name}#{t('header.san')}" %> </div>
             <%= link_to t('header.account'), "#", class: "block px-4 py-2 hover:bg-gray-100" %>
             <%= button_to t('header.logout'), destroy_user_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
           </div>
