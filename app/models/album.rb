@@ -3,5 +3,5 @@ class Album < ApplicationRecord
   validates :description, presence: true, length: { maximum: 65_535 }
 
   belongs_to :user
-  has_many :album_photos, dependent: :destroy
+  has_many :photos, dependent: :destroy
 end
