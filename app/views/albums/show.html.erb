@@ -1,10 +1,12 @@
-<% if @album.photos.present? %>
-  <% @album.photos.each do |photo| %>
-    <% if photo.images.present? %>
-      <% photo.images.each do |image| %>
-        <%= image_tag image.to_s%>
+<h2><%= @album.title %></h2>
+
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+    <% photo.images.each do |image| %>
+      <div class="mb-4">
+        <%= image_tag image.url, class: "w-48 h-48 object-cover border rounded" %>
         <p><%= photo.comment %></p>
-      <% end %>
+      </div>
     <% end %>
   <% end %>
 <% end %>
