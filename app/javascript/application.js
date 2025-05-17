@@ -16,4 +16,3 @@ document.addEventListener("DOMContentLoaded", () => {
     pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
   }
 });
-
