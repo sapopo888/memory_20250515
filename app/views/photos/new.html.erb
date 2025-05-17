@@ -1,0 +1,56 @@
+<div class="w-full flex flex-col items-center">
+  <%= form_with url: album_photos_path(@album), local: true, multipart: true do |f| %>
+    <% if @photo && @photo.errors.any? %>
+      <div class="text-red-500 mb-4">
+        <ul>
+          <% @photo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- 複数画像を選択 -->
+    <div class="mb-4 w-full">
+      <label class="block font-bold">画像を選択（複数）</label>
+      <input type="file" name="images[]" id="image-input" multiple accept="image/*" class="border p-2 w-full" />
+    </div>
+
+    <!-- 画像ごとのプレビューとコメント入力欄 -->
+    <div id="preview-container" class="space-y-4 w-full"></div>
+
+    <%= f.submit "アップロード", class: "mt-4 bg-blue-500 text-white px-4 py-2 rounded" %>
+  <% end %>
+</div>
+
+<script>
+document.getElementById("image-input").addEventListener("change", function(event) {
+  const previewContainer = document.getElementById("preview-container");
+  previewContainer.innerHTML = "";
+
+  const files = Array.from(event.target.files);
+
+  files.forEach((file, index) => {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "flex items-center space-x-4";
+
+      const image = document.createElement("img");
+      image.src = e.target.result;
+      image.className = "w-32 h-32 object-cover border rounded";
+
+      const comment = document.createElement("input");
+      comment.type = "text";
+      comment.name = "comments[]";
+      comment.placeholder = "コメントを入力";
+      comment.className = "flex-1 border px-2 py-1 rounded";
+
+      wrapper.appendChild(image);
+      wrapper.appendChild(comment);
+      previewContainer.appendChild(wrapper);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+</script>

@@ -2,7 +2,17 @@ ja:
   activerecord:
     models:
       album: アルバム
+      photo: フォト
     attributes:
       album:
         title: タイトル
         description: 説明
+      photo:
+        images: 画像（複数アップロード可）
+        comment: コメント
+    errors:
+      models:
+        photo:
+          attributes:
+            album:
+              required: "を指定してください"
