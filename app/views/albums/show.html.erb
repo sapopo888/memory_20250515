@@ -1,0 +1,10 @@
+<% if @album.photos.present? %>
+  <% @album.photos.each do |photo| %>
+    <% if photo.images.present? %>
+      <% photo.images.each do |image| %>
+        <%= image_tag image.to_s%>
+        <p><%= photo.comment %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

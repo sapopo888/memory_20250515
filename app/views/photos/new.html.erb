@@ -1,9 +1,21 @@
 <div class="w-full flex flex-col items-center">
   <%= form_with model: [@album, Photo.new], local: true, html: { multipart: true }, class: "space-y-6" do |f| %>
+
+    <% if @photo.errors.any? %>
+      <div class="text-red-500 mb-4">
+        <ul>
+          <% @photo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <!-- ファイル選択 -->
     <div>
       <%= f.label :images, class: "block mb-2 text-lg font-medium text-gray-700" %>
       <%= f.file_field :images, multiple: true, accept: 'image/*', class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
+      <%= f.hidden_field :images_cache %>
     </div>
   
     <!-- コメント入力 -->

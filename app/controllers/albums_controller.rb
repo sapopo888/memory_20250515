@@ -17,6 +17,10 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def show
+    @album = current_user.albums.find(params[:id])
+  end
+
   private
 
   def album_params
