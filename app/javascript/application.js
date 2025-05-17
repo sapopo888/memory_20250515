@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import { PageFlip } from "page-flip";
 
+// page-flip
 document.addEventListener("DOMContentLoaded", () => {
   const elm = document.getElementById("book");
 
@@ -15,3 +16,4 @@ document.addEventListener("DOMContentLoaded", () => {
     pageFlip.loadFromHTML(document.querySelectorAll('.my-page'));
   }
 });
+
