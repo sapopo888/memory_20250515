@@ -1,12 +1,24 @@
-<h2><%= @album.title %></h2>
+<div class="w-full flex flex-col items-center">
+  <div class="flex justify-between items-center px-4 py-2 bg-gray-100 border-b">
+    <div><%= @album.title %></div>
+  </div>
+  <div>
+    <%= link_to "画像の追加" %>
+    <%= link_to "画像の編集" %>
+  </div>
 
-<% if @photos.present? %>
-  <% @photos.each do |photo| %>
-    <% photo.images.each do |image| %>
-      <div class="mb-4">
-        <%= image_tag image.url, class: "w-48 h-48 object-cover border rounded" %>
-        <p><%= photo.comment %></p>
-      </div>
+  <div id="book">
+    <% if @photos.present? %>
+      <% @photos.each do |photo| %>
+        <% if photo.images.present? %>
+          <% photo.images.each do |image| %>
+            <div class="my-page">
+              <%= image_tag image.url %>
+              <p class="photo-comment"><%= photo.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>
