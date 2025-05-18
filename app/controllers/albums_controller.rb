@@ -22,6 +22,12 @@ class AlbumsController < ApplicationController
     @photos = @album.photos
   end
 
+  def destroy
+    album = current_user.albums.find(params[:id])
+    album.destroy!
+    redirect_to albums_path, notice: t("defaults.flash_message.deleted", item: Album.model_name.human), status: :see_other
+  end
+
   private
 
   def album_params
