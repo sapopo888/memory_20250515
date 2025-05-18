@@ -22,6 +22,20 @@ class AlbumsController < ApplicationController
     @photos = @album.photos
   end
 
+  def edit
+    @album = current_user.albums.find(params[:id])
+  end
+
+  def update
+    @album = current_user.albums.find(params[:id])
+    if @album.update(album_params)
+      redirect_to album_path(@album), status: :see_other, notice: "アルバムを更新しました"
+    else
+      flash.now[:alert] = "アルバムを更新できませんでした"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     album = current_user.albums.find(params[:id])
     album.destroy!
