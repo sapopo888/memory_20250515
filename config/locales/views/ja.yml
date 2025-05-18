@@ -5,6 +5,13 @@ ja:
     show: 詳細
     delete: 削除
     upload: アップロード
+    delete_confirm: 削除しますか？
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
   label:
     title: タイトル
     description: 説明
