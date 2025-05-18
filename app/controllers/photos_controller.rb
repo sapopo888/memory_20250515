@@ -16,9 +16,9 @@ class PhotosController < ApplicationController
         photo.save
       end
 
-      redirect_to album_path(@album), notice: t('defaults.flash_message.save_images'), status: :see_other
+      redirect_to album_path(@album), notice: t("defaults.flash_message.save_images"), status: :see_other
     else
-      flash.now[:alert] = t('defaults.flash_message.no_choice')
+      flash.now[:alert] = t("defaults.flash_message.no_choice")
       render :new, status: :unprocessable_entity
     end
   end
