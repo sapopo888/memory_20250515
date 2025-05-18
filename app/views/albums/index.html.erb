@@ -8,7 +8,7 @@
 
           <div class="flex">
             <p class="text-lg font-semibold flex justify-between items-center">
-              <%= album.title %>
+              <%= link_to album.title, album_path(album) %>
             </p>
           </div>
           <p class="text-sm text-gray-600 mt-2">
