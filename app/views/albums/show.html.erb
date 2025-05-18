@@ -1,10 +1,11 @@
 <div class="w-full flex flex-col items-center">
-  <div class="flex justify-between items-center px-4 py-2 bg-gray-100 border-b">
+  <div class="flex justify-between items-center px-4 py-2 mb-4 bg-gray-100 border-b">
     <div><%= @album.title %></div>
   </div>
-  <div>
-    <%= link_to "画像の追加" %>
-    <%= link_to "画像の編集" %>
+  <div class="mb-6">
+    <%= link_to t('albums.show.edit'), edit_album_path(@album) %>
+    <%= link_to t('albums.show.add_images') %>
+    <%= link_to t('albums.show.edit_images') %>
     <%= link_to album_path(@album), id: "button-delete-#{@album.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200" do %>
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-900" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M6 2a1 1 0 011-1h6a1 1 0 011 1v1h3a1 1 0 110 2h-1v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5H2a1 1 0 110-2h3V2zm2 4a1 1 0 012 0v8a1 1 0 11-2 0V6zm4 0a1 1 0 012 0v8a1 1 0 11-2 0V6z" clip-rule="evenodd" />
