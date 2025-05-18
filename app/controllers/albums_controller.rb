@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new(album_params)
     if @album.save
-      redirect_to new_album_photo_path(@album), status: :see_other, notice: "アルバムを作成しました"
+      redirect_to new_album_photo_path(@album), status: :see_other, notice: t("defaults.flash_message.creates", item: Album.model_name.human)
     else
     flash.now[:alert] = "アルバムを作成できませんでした"
     render :new, status: :unprocessable_entity # 作成失敗したエラーメッセージを表示するのに必要
@@ -29,9 +29,9 @@ class AlbumsController < ApplicationController
   def update
     @album = current_user.albums.find(params[:id])
     if @album.update(album_params)
-      redirect_to album_path(@album), status: :see_other, notice: "アルバムを更新しました"
+      redirect_to album_path(@album), status: :see_other, notice: t("defaults.flash_message.updated", item: Album.model_name.human),
     else
-      flash.now[:alert] = "アルバムを更新できませんでした"
+      flash.now[:alert] = t("defaults.flash_message.not_updated", item: Album.model_name.human),
       render :edit, status: :unprocessable_entity
     end
   end
