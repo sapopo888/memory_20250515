@@ -3,6 +3,7 @@ ja:
     create: 作成
     edit: 編集
     show: 詳細
+    update: 更新
     delete: 削除
     upload: アップロード
     delete_confirm: 削除しますか？
@@ -12,6 +13,8 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+      save_images: 画像を保存しました
+      no_choice: 画像が選択されていません
   label:
     title: タイトル
     description: 説明
@@ -32,7 +35,14 @@ ja:
       title: アルバム一覧
       created_at: 作成日
       no_album: アルバムはありません
+    show:
+      edit: アルバム編集
+      add_images: 画像の追加
+      edit_images: 画像の編集
+    edit:
+      title: アルバム編集
   photos:
+
 
   errors:
     messages:
