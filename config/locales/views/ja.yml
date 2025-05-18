@@ -21,6 +21,10 @@ ja:
   albums:
     new:
       title: アルバム作成
+    index:
+      title: アルバム一覧
+      created_at: 作成日
+      no_album: アルバムはありません
   photos:
 
   errors:
