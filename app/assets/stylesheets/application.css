@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+/* エラーメッセージが表示されたときにレイアウトが崩れるのを防ぐために記載
+  エラーメッセージ表示時に自動的に挿入される部分(.field_with_errors というラッパー)を「存在しないかのように振る舞わせる」指定 */
+.field_with_errors {
+  display: contents;
+}
