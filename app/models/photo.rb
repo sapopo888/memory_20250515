@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   belongs_to :album
   mount_uploaders :images, ImageUploader
 
-  require 'digest'
+  require "digest"
 
   def self.generate_image_hash(uploaded_file)
     content = uploaded_file.read # ファイルの中身だけを読み込んでSHA256を生成
