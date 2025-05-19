@@ -8,21 +8,42 @@ class PhotosController < ApplicationController
     @album = current_user.albums.find(params[:album_id])
     uploaded_images = params[:images] || []
     comments = params[:comments] || []
-    if uploaded_images.any?
-      uploaded_images.each_with_index do |image, i|
-        comment = comments[i] || "" # 画像に対応するコメントを取り出す。もしコメントが送られていなければ、空の文字列""を使う
-        photo = current_user.photos.new(comment: comment, album: @album) # photoの新しいデータを作る。コメントを設定してアルバムと紐付ける。
-        photo.images = [ image ] # CarrierWaveが画像を配列で受け取れるように、画像を配列の形にする
-        photo.save
-      end
 
-      redirect_to album_path(@album), notice: t("defaults.flash_message.save_images"), status: :see_other
-    else
-      flash.now[:alert] = t("defaults.flash_message.no_choice")
+    existing_hashes = @album.photos.pluck(:image_hashes).flatten.uniq
+    new_hashes = []
+    new_photos = []
+
+    # 画像とコメントをペアにして処理
+    uploaded_images.zip(comments).each do |image, comment|
+      image_hash = Photo.generate_image_hash(image)
+
+      # すでにDBにある、または今回のアップロード内で重複している画像をスキップ
+      next if existing_hashes.include?(image_hash) || new_hashes.include?(image_hash)
+
+      photo = current_user.photos.new(
+        comment: comment.presence || "",
+        album: @album
+      )
+      photo.images = [ image ]
+      photo.image_hashes = [ image_hash ]
+
+      new_photos << photo
+      new_hashes << image_hash
+    end
+
+    # 保存処理
+    saved_photos = new_photos.select(&:save)
+
+    case saved_photos.size
+    when uploaded_images.size     # 全て新規登録
+      redirect_to album_path(@album), notice: t("photos.new.added_images"), status: :see_other
+    when 0                        # 全て重複
+      flash.now[:alert] = t("photos.new.all_rejected")
       render :new, status: :unprocessable_entity
+    else                          # 一部登録、一部重複
+      redirect_to album_path(@album), notice: t("photos.new.added_some_images")
     end
   end
-
 
   def show
     @album = current_user.albums.find(params[:album_id])

@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.new(album_params)
     if @album.save
-      redirect_to new_album_photo_path(@album), status: :see_other, notice: t("defaults.flash_message.creates", item: Album.model_name.human)
+      redirect_to new_album_photo_path(@album), status: :see_other, notice: t("defaults.flash_message.created", item: Album.model_name.human)
     else
     flash.now[:alert] = t("defaults.flash_message.not_created", item: Album.model_name.human)
     render :new, status: :unprocessable_entity # 作成失敗したエラーメッセージを表示するのに必要

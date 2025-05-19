@@ -1,4 +1,7 @@
 <div class="w-full flex flex-col items-center">
+  <div class="font-semibold text-2xl md:text-3xl mb-6 text-gray-800">
+    <%= t('photos.new.title') %>
+  </div>
   <%= form_with url: album_photos_path(@album), local: true, multipart: true do |f| %>
     <% if @photo && @photo.errors.any? %>
       <div class="text-red-500 mb-4">
@@ -12,14 +15,16 @@
 
     <!-- 複数画像を選択 -->
     <div class="mb-4 w-full">
-      <label class="block font-bold">画像を選択（複数）</label>
+      <label class="block font-bold"><%= t('label.images') %></label>
       <input type="file" name="images[]" id="image-input" multiple accept="image/*" class="border p-2 w-full" />
     </div>
 
     <!-- 画像ごとのプレビューとコメント入力欄 -->
     <div id="preview-container" class="space-y-4 w-full"></div>
 
-    <%= f.submit "アップロード", class: "mt-4 bg-blue-500 text-white px-4 py-2 rounded" %>
+    <div class="mt-6 flex justify-center">
+      <%= f.submit t('defaults.upload'), class: "mt-4 bg-blue-500 text-white px-4 py-2 rounded " %>
+    </div>
   <% end %>
 </div>
 
@@ -40,11 +45,11 @@ document.getElementById("image-input").addEventListener("change", function(event
       image.src = e.target.result;
       image.className = "w-32 h-32 object-cover border rounded";
 
-      const comment = document.createElement("input");
+      const comment = document.createElement("textarea"); // inputだと１行、textareaだと複数行入力可能
       comment.type = "text";
       comment.name = "comments[]";
-      comment.placeholder = "コメントを入力";
-      comment.className = "flex-1 border px-2 py-1 rounded";
+      comment.placeholder = "<%= t('photos.new.placeholder') %>";
+      comment.className = "w-80 h-20 border px-3 py-2 rounded text-base resize-none";
 
       wrapper.appendChild(image);
       wrapper.appendChild(comment);
