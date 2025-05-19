@@ -47,6 +47,7 @@ ja:
       added_images: アルバムに画像を登録しました
       all_rejected: 全ての画像がアルバムに登録済みのため、登録されませんでした
       added_some_images: アルバムに一部の画像を登録しました（既に登録済みの画像は登録されませんでした）
+      placeholder: コメントを入力してください
 
   errors:
     messages:
