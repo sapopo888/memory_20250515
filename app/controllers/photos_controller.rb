@@ -41,7 +41,7 @@ class PhotosController < ApplicationController
       flash.now[:alert] = t('photos.new.all_rejected')
       render :new, status: :unprocessable_entity
     else                          # 一部登録、一部重複
-      redirect_to album_path(@album), notice: "既に登録済みの画像は登録されませんでした"
+      redirect_to album_path(@album), notice: t('photos.new.added_some_images')
     end
   end
 
