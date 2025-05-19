@@ -1,6 +1,6 @@
 import { PageFlip } from "page-flip";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const elm = document.getElementById("book");
 
   if (elm) {
