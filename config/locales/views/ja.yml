@@ -42,7 +42,9 @@ ja:
     edit:
       title: アルバム編集
   photos:
-
+    new:
+      added_images: アルバムに画像を登録しました
+      all_rejected: 全ての画像がアルバムに登録済みのため、登録されませんでした
 
   errors:
     messages:

@@ -81,9 +81,9 @@ class PhotosController < ApplicationController
   
     if new_photos.any?
       new_photos.each(&:save)
-      redirect_to album_path(@album), notice: "画像を登録しました", status: :see_other
+      redirect_to album_path(@album), notice: t('photos.new.added_images'), status: :see_other
     else
-      flash.now[:alert] = "すべての画像が重複していたため、登録されませんでした"
+      flash.now[:alert] = t('photos.new.all_rejected')
       render :new, status: :unprocessable_entity
     end
   end
