@@ -18,7 +18,7 @@ ja:
   label:
     title: タイトル
     description: 説明
-    images: 画像（複数アップロード可）
+    images: 画像を選択（複数可）
     comment: コメント
   header:
     albums:
@@ -43,6 +43,7 @@ ja:
       title: アルバム編集
   photos:
     new:
+      title: 画像アップロード
       added_images: アルバムに画像を登録しました
       all_rejected: 全ての画像がアルバムに登録済みのため、登録されませんでした
       added_some_images: アルバムに一部の画像を登録しました（既に登録済みの画像は登録されませんでした）
