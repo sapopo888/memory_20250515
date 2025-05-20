@@ -1,20 +1,21 @@
-<% if flash[:alert] %>
-  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
-
 <%= form_with url: album_update_photos_path(@album), method: :patch, local: true do %>
-  <% @photos.each_with_index do |photo, index| %>
-    <div>
-      <% photo.images.each do |image| %>
-        <%= image_tag image.url, class: "w-32 h-32 object-cover border rounded " %>
-      <% end %>
+  <div class="flex flex-wrap gap-4">
+    <% @photos.each_with_index do |photo, index| %>
+      <div class="flex flex-col items-center border p-4 rounded shadow w-64">
+        <% photo.images.each do |image| %>
+          <%= image_tag image.url, class: "w-32 h-32 object-cover border rounded mb-2" %>
+        <% end %>
+        <%= hidden_field_tag "photos[#{index}][id]", photo.id %>
+        <%= text_area_tag "photos[#{index}][comment]", photo.comment, class: "w-full p-2 border rounded resize-none h-24" %>
+        <div class="rounded bg-gray-200 hover:bg-gray-300 ">
+          <%= link_to "削除", album_photo_path(@album, photo), data: { turbo_method: :delete, turbo_confirm: 'この画像を削除しますか？', class: "" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-      <%= hidden_field_tag "photos[#{index}][id]", photo.id %>
-      <%= text_area_tag "photos[#{index}][comment]", photo.comment, class: "w-full p-2 border rounded" %>
-    </div>
-  <% end %>
+  <div class="mt-8 flex justify-center">
+    <%= submit_tag "保存", class: "w-1/6 bg-button text-white mt-4 py-2 rounded-md font-semibold hover:bg-change text-md md:text-lg" %>
+  </div>
 
-  <%= submit_tag "保存", class: "bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" %>
 <% end %>
