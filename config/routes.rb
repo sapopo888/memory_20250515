@@ -18,5 +18,7 @@ Rails.application.routes.draw do
 
   resources :albums, only: %i[index new create show edit update destroy] do
     resources :photos, only: %i[new create]
+    get 'edit_photos', to: 'photos#edit_multiple', as: :edit_photos
+    patch 'update_photos' to: 'photos#update_multiple', as: :update_photos
   end
 end
