@@ -46,6 +46,7 @@ group :development, :test do
 
   gem "rubocop"
   gem "faker"
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -64,3 +65,4 @@ gem "devise"
 gem "devise-i18n"
 gem "carrierwave"
 gem "mini_magick"
+gem "fog-aws"
