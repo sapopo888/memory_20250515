@@ -71,6 +71,14 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @album = current_user.albums.find(params[:album_id])
+    @photo = @album.photos.find(params[:id])
+
+    @photo.destroy!
+    redirect_to album_edit_photos_path(@album), notice: "画像を削除しました"
+  end
+
   private
 
   def photo_params
