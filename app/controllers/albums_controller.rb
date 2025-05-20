@@ -19,7 +19,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = current_user.albums.find(params[:id])
-    @photos = @album.photos
+    @photos = @album.photos.order(:created_at)
   end
 
   def edit
