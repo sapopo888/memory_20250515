@@ -64,9 +64,9 @@ class PhotosController < ApplicationController
     end
 
     if update_success
-      redirect_to album_path(@album), notice: "画像のコメントを更新しました", status: :see_other
+      redirect_to album_path(@album), notice: t('defaults.flash_message.updated', item: Photo.model_name.human), status: :see_other
     else
-      flash.now[:alert] = "画像のコメント絵を更新できませんでした"
+      flash.now[:alert] = t('defaults.flash_message.not_updated', item: Photo.model_name.human)
       render :edit_multiple, status: :unprocessable_entity
     end
   end
@@ -76,7 +76,7 @@ class PhotosController < ApplicationController
     @photo = @album.photos.find(params[:id])
 
     @photo.destroy!
-    redirect_to album_edit_photos_path(@album), notice: "画像を削除しました"
+    redirect_to album_edit_photos_path(@album), notice: t('defaults.flash_message.deleted', item: Photo.model_name.human)
   end
 
   private

@@ -2,7 +2,7 @@ ja:
   activerecord:
     models:
       album: アルバム
-      photo: フォト
+      photo: 画像
     attributes:
       album:
         title: タイトル
