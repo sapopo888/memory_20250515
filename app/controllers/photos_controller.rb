@@ -53,7 +53,7 @@ class PhotosController < ApplicationController
   def update_multiple
     @album = current_user.albums.find(params[:album_id])
     @photos = @album.photos.order(:created_at)
-    
+
     update_success = true
 
     params[:photos].each do |index, photo_params|
@@ -64,9 +64,9 @@ class PhotosController < ApplicationController
     end
 
     if update_success
-      redirect_to album_path(@album), notice: '画像のコメントを更新しました', status: :see_other
+      redirect_to album_path(@album), notice: "画像のコメントを更新しました", status: :see_other
     else
-      flash.now[:alert] = '画像のコメント絵を更新できませんでした'
+      flash.now[:alert] = "画像のコメント絵を更新できませんでした"
       render :edit_multiple, status: :unprocessable_entity
     end
   end
