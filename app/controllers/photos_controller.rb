@@ -45,11 +45,21 @@ class PhotosController < ApplicationController
     end
   end
 
-  def show
+  def edit_multiple
     @album = current_user.albums.find(params[:album_id])
     @photos = @album.photos
   end
 
+  def update_multiple
+    @album = current_user.albums.find(params[:album_id])
+
+    params[:photos].each do |index, photo_params|
+      photo = @album.photos.find(photo_params[:id])
+      photo.update(comment: photo_params[:comment])
+    end
+
+    redirect_to album_path(@album), notice: '画像のコメントを更新しました'
+  end
   private
 
   def photo_params
