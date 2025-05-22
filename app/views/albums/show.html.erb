@@ -1,6 +1,6 @@
 <div class="w-full flex flex-col items-center">
-  <div class="flex justify-between items-center px-4 py-2 mb-4 bg-gray-100 border-b">
-    <div><%= @album.title %></div>
+  <div class="flex justify-between items-center px-4 py-2 mb-4 border-b font-bold text-gray-800">
+    <div class="text-xl text-gray-800"><%= @album.title %></div>
   </div>
   <div class="mb-6">
     <%= link_to t('albums.show.edit'), edit_album_path(@album) %>
