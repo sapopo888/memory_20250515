@@ -24,7 +24,7 @@
       <% @photos.each do |photo| %>
         <% if photo.images.present? %>
           <% photo.images.each do |image| %>
-            <div class="my-page contents">
+            <div class="my-page contents" data-density="hard">
               <%= image_tag image.url %>
               <p class="comment text-center mt-4"><%= photo.comment %></p>
             </div>
