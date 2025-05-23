@@ -3,7 +3,6 @@
     <div class="text-xl text-gray-800"><%= @album.title %></div>
   </div>
   <div class="mb-6 space-x-4">
-    <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.edit'), edit_album_path(@album) %></span>
     <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %></span>
     <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %></span>
     <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
@@ -22,7 +21,7 @@
           <% photo.images.each do |image| %>
             <div class="my-page contents" data-density="hard">
               <%= image_tag image.url %>
-              <p class="comment text-center mt-4"><%= photo.comment %></p>
+              <p class="text-center mt-4"><%= photo.comment %></p>
             </div>
           <% end %>
         <% end %>

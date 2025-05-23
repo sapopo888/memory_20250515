@@ -19,7 +19,7 @@
           </p>
           <!-- 編集アイコン（適宜ルーティング追加） -->
           <div class="flex justify-end pt-2">
-            <%= link_to "#", id: "button-edit-#{album.id}", class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 " do %>
+            <%= link_to edit_album_path(album), id: "button-edit-#{album.id}", class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 " do %>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke-width="1.5" stroke="currentColor"
                   class="w-5 h-5 text-blue-500 hover:text-blue-900">
