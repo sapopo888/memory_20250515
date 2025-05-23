@@ -5,7 +5,7 @@ document.addEventListener("turbo:load", () => {
 
   if (elm) {
     const pageFlip = new PageFlip(document.getElementById('book'), {
-      width: 400,
+      width: 600,
       height: 600,
       // showCover: true
     });
