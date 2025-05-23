@@ -17,8 +17,8 @@
     <div class="my-page">
       <%= image_tag '600*600_floor.jpg', alt: "Floor", class: "w-full"  %>
     </div>
-    <div class="my-page">
-      <%= image_tag '600*600_top_cover.jpg', alt: "Cover", class: "w-full"  %>
+    <div class="my-page" data-density="hard">
+      <%= image_tag '600*600_top_cover.jpg', alt: "Cover", class: "w-full" %>
     </div>
     <% if @photos.present? %>
       <% @photos.each do |photo| %>
@@ -26,13 +26,13 @@
           <% photo.images.each do |image| %>
             <div class="my-page">
               <%= image_tag image.url %>
-              <p class="text-center mt-4"><%= photo.comment %></p>
+              <p class="comment text-center mt-4"><%= photo.comment %></p>
             </div>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
-    <div class="my-page">
+    <div class="my-page" data-density="hard">
       <%= image_tag '600*600_back_cover.jpg', alt: "Back Cover", class: "w-full" %>
     </div>
   </div>
