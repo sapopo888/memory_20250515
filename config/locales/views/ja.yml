@@ -51,6 +51,7 @@ ja:
       added_some_images: アルバムに一部の画像を登録しました（既に登録済みの画像は登録されませんでした）
       placeholder: コメントを入力してください
     edit_multiple:
+      no_photos: 登録されている画像はありません
 
   errors:
     messages:
