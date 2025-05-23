@@ -52,6 +52,7 @@ ja:
       placeholder: コメントを入力してください
     edit_multiple:
       no_photos: 登録されている画像はありません
+      title: 画像編集
 
   errors:
     messages:
