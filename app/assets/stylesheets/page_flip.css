@@ -4,6 +4,6 @@
   background: rgba(128, 128, 128, 0.135);
 }
 .contents {
-  padding: 20px 20px 0 20px;   /* ページの上左右に余白をつける */
+  padding: 70px;   /* ページの上下左右に余白をつける */
   box-sizing: border-box;  /* padding込みでページサイズを保つため */
 }
