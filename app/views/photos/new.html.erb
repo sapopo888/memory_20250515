@@ -26,6 +26,7 @@
       <%= f.submit t('defaults.upload'), class: "mt-4 bg-blue-500 text-white px-4 py-2 rounded " %>
     </div>
   <% end %>
+  <%= link_to '戻る', request.referer || albums_path, class: "text-gray-500 hover:underline mt-8" %>
 </div>
 
 <script>
