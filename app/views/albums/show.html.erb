@@ -1,30 +1,35 @@
 <div class="w-full flex flex-col items-center">
-  <div class="flex justify-between items-center px-4 py-2 mb-4 bg-gray-100 border-b">
-    <div><%= @album.title %></div>
+  <div class="flex justify-between items-center px-4 py-2 mb-4 font-bold text-gray-800">
+    <div class="text-xl text-gray-800"><%= @album.title %></div>
   </div>
-  <div class="mb-6">
-    <%= link_to t('albums.show.edit'), edit_album_path(@album) %>
-    <%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %>
-    <%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %>
-    <%= link_to album_path(@album), id: "button-delete-#{@album.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 hover:text-gray-900" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M6 2a1 1 0 011-1h6a1 1 0 011 1v1h3a1 1 0 110 2h-1v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5H2a1 1 0 110-2h3V2zm2 4a1 1 0 012 0v8a1 1 0 11-2 0V6zm4 0a1 1 0 012 0v8a1 1 0 11-2 0V6z" clip-rule="evenodd" />
-      </svg>
-    <% end %>
+  <div class="mb-6 space-x-4">
+    <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %></span>
+    <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %></span>
+    <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
   </div>
 
   <div id="book">
+    <div class="my-page" data-density="hard">
+      <%= image_tag '600*600_top_cover.jpg', alt: "Cover", class: "w-full" %>
+    </div>
     <% if @photos.present? %>
       <% @photos.each do |photo| %>
         <% if photo.images.present? %>
           <% photo.images.each do |image| %>
-            <div class="my-page">
-              <%= image_tag image.url %>
-              <p class="photo-comment"><%= photo.comment %></p>
+            <div class="my-page contents flex flex-col items-center px-8 py-8" data-density="hard">
+              <div class="w-full flex justify-center">
+                <%= image_tag image.url, class: "max-h-[400px] object-contain" %>
+              </div>
+              <p class="flex items-center justify-center text-center mt-8 rounded-md bg-white max-w-full min-h-[100px] px-4 break-words">
+                <%= photo.comment %>
+              </p>
             </div>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
+    <div class="my-page" data-density="hard">
+      <%= image_tag '600*600_back_cover.jpg', alt: "Back Cover", class: "w-full" %>
+    </div>
   </div>
 </div>

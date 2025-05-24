@@ -31,7 +31,12 @@
       </div>
     <% end %>
 
-    <main class="container mx-auto mt-28 px-5 flex">
+    <!-- ヘッダー下の余白 -->
+    <% if controller_name == 'albums' && action_name == 'show' %>
+      <main class="container mx-auto mt-10 px-5 flex">
+    <% else %>
+      <main class="container mx-auto mt-24 px-5 flex">
+    <% end %>
       <%= yield %>
     </main>
   </body>

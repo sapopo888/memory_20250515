@@ -7,6 +7,7 @@ ja:
     update: 更新
     delete: 削除
     upload: アップロード
+    back: 戻る
     delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
@@ -35,20 +36,25 @@ ja:
     index:
       title: アルバム一覧
       created_at: 作成日
+      updated_at: 更新日
       no_album: アルバムはありません
     show:
       edit: アルバム編集
       add_images: 画像の追加
       edit_images: 画像の編集
+      delete: アルバム削除
     edit:
       title: アルバム編集
   photos:
     new:
       title: 画像アップロード
-      added_images: アルバムに画像を登録しました
-      all_rejected: 全ての画像がアルバムに登録済みのため、登録されませんでした
-      added_some_images: アルバムに一部の画像を登録しました（既に登録済みの画像は登録されませんでした）
+      added_images: アルバムに画像を追加しました
+      all_rejected: 全ての画像がアルバムに登録済みのため、追加されませんでした
+      added_some_images: アルバムに一部の画像を追加しました（既に登録済みの画像を除く）
       placeholder: コメントを入力してください
+    edit_multiple:
+      no_photos: 登録されている画像はありません
+      title: 画像編集
 
   errors:
     messages:

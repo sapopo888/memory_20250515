@@ -1,23 +1,28 @@
 <div class="w-full flex flex-col items-center">
-  <%= form_with url: album_update_photos_path(@album), method: :patch, local: true do %>
-    <div class="flex flex-wrap gap-12">
-      <% @photos.each_with_index do |photo, index| %>
-        <div class="flex flex-col items-center border p-4 rounded shadow w-64">
-          <% photo.images.each do |image| %>
-            <%= image_tag image.url, class: "w-32 h-32 object-cover border rounded mb-2" %>
-          <% end %>
-          <%= hidden_field_tag "photos[#{index}][id]", photo.id %>
-          <%= text_area_tag "photos[#{index}][comment]", photo.comment, class: "w-full p-2 border rounded resize-none h-24 mt-4" %>
-          <div class="mt-4 rounded bg-gray-200 hover:bg-gray-300 ">
-            <%= link_to t('defaults.delete'), album_photo_path(@album, photo), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>
+  <div class="font-semibold text-2xl md:text-3xl mb-6 text-gray-800"><%= t('photos.edit_multiple.title') %></div>
+  <% if @album.photos.present? %>
+    <%= form_with url: album_update_photos_path(@album), method: :patch, local: true do %>
+      <div class="flex flex-wrap gap-12">
+        <% @photos.each_with_index do |photo, index| %>
+          <div class="flex flex-col items-center border p-4 rounded shadow w-64">
+            <% photo.images.each do |image| %>
+              <%= image_tag image.url, class: "w-32 h-32 object-cover border rounded mb-2" %>
+            <% end %>
+            <%= hidden_field_tag "photos[#{index}][id]", photo.id %>
+            <%= text_area_tag "photos[#{index}][comment]", photo.comment, class: "w-full p-2 border rounded resize-none h-24 mt-4" %>
+            <div class="mt-4 px-6 rounded bg-gray-200 hover:bg-gray-300 text-gray-800">
+              <%= link_to t('defaults.delete'), album_photo_path(@album, photo), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  
-    <div class="mt-8 flex justify-center">
-      <%= submit_tag t('defaults.save'), class: "w-1/6 bg-button text-white mt-4 py-2 rounded-md font-semibold hover:bg-change text-md md:text-lg" %>
-    </div>
-  
+        <% end %>
+      </div>
+    
+      <div class="mt-8 flex justify-center">
+        <%= submit_tag t('defaults.save'), class: "bg-button text-white px-12 py-2 rounded-md font-semibold hover:bg-change text-md md:text-lg" %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="px-4 text-lg md:text-xl text-gray-800"><%= t('photos.edit_multiple.no_photos') %></p>
   <% end %>
+  <div class="flex text-gray-800 hover:underline mt-6 px-8"><%= link_to t('defaults.back'), album_path(@album) %></div>
 </div>

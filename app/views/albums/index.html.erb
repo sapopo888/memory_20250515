@@ -1,13 +1,13 @@
 <div class="w-full flex flex-col items-center">
-  <h1 class='text-2xl font-bold md:text-3xl mb-6 text-gray-800'><%= t('albums.index.title') %></h1>
+  <h1 class='text-2xl font-bold md:text-3xl mb-10 text-gray-800'><%= t('albums.index.title') %></h1>
 
   <% if @albums.present? %>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
       <% @albums.each do |album| %>
         <div class="border rounded-lg p-4 shadow hover:shadow-md transition">
 
           <div class="flex">
-            <p class="text-lg font-semibold flex justify-between items-center">
+            <p class="text-lg font-semibold flex justify-between items-center hover:ring rounded-md">
               <%= link_to album.title, album_path(album) %>
             </p>
           </div>
@@ -15,11 +15,15 @@
             <%= album.description %>
           </p>
           <p class="text-sm text-gray-400 mt-2">
-            <%= t('albums.index.created_at') %>: <%= l(album.created_at.to_date, format: :long) %>
+            <%= t('albums.index.created_at') %>: <%= l(album.created_at.to_date, format: :default) %>
+          </p>
+          </p>
+          <p class="text-sm text-gray-400 mt-2">
+            <%= t('albums.index.updated_at') %>: <%= l(album.updated_at.to_date, format: :default) %>
           </p>
           <!-- 編集アイコン（適宜ルーティング追加） -->
           <div class="flex justify-end pt-2">
-            <%= link_to "#", id: "button-edit-#{album.id}", class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 " do %>
+            <%= link_to edit_album_path(album), id: "button-edit-#{album.id}", class: "inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-200 " do %>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   stroke-width="1.5" stroke="currentColor"
                   class="w-5 h-5 text-blue-500 hover:text-blue-900">
