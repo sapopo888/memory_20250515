@@ -11,7 +11,7 @@
             <%= hidden_field_tag "photos[#{index}][id]", photo.id %>
             <%= text_area_tag "photos[#{index}][comment]", photo.comment, class: "w-full p-2 border rounded resize-none h-24 mt-4" %>
             <div class="mt-4 px-6 rounded bg-gray-200 hover:bg-gray-300 text-gray-800">
-              <%= link_to t('defaults.delete'), album_photo_path(@album, photo), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>
+              <%= button_to t('defaults.delete'), album_photo_path(@album, photo), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } %>
             </div>
           </div>
         <% end %>

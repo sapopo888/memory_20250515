@@ -5,7 +5,7 @@
   <div class="mb-6 space-x-4">
     <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %></span>
     <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %></span>
-    <span class="hover:border-b hover:border-gray-800"><%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
+    <span class="hover:border-b hover:border-gray-800"><%= button_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
   </div>
 
   <div id="book">
