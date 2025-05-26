@@ -4,8 +4,8 @@
   </div>
 
 
-  <div class='rounded-lg w-full max-w-xl p-8'>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "w-11/12 md:w-10/12 xl:w-8/12" }, data: { turbo: false }) do |f| %>
+  <div class='rounded-lg w-full max-w-xl p-8 justify-center'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
 
       <%= render "users/shared/error_messages", resource: resource %>
 
@@ -15,31 +15,31 @@
 
       <div class="mb-6 flex items-center">
         <%= f.label :name, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
-        <%= f.text_field :name, class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+        <%= f.text_field :name, class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
       <div class="mb-6 flex items-center">
         <%= f.label :email, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
-        <%= f.email_field :email, class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+        <%= f.email_field :email, class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
       <div class="mb-6 flex items-center">
-        <%= f.label :password, "password", class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
-        <%= f.password_field :password, class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+        <%= f.label :password, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
+        <%= f.password_field :password, class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
       <div class="mb-6 flex items-center">
         <%= f.label :password_confirmation, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
-        <%= f.password_field :password_confirmation, class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+        <%= f.password_field :password_confirmation, class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
       <div class="mb-6 flex items-center">
         <%= f.label :current_password, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
-        <%= f.password_field :current_password, class: "w-full rounded-md border border-gray-300 py-2 px-3 placeholder:text-gray-300 focus:border-indigo-300 focus:outline-none focus:ring focus:ring-indigo-100" %>
+        <%= f.password_field :current_password, class: "w-full border border-gray-300 bg-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit t('defaults.update'), class: "inline-flex w-full items-center justify-center rounded-md bg-indigo-500 p-3 text-white duration-100 ease-in-out hover:bg-indigo-600 focus:outline-none" %>
+      <div class="mt-6 flex justify-center">
+        <%= f.submit t('defaults.update'), class: "w-1/3 bg-button text-white mt-4 py-2 rounded-md font-semibold hover:bg-change text-md md:text-lg" %>
       </div>
     <% end %>
   </div>
