@@ -21,4 +21,8 @@ Rails.application.routes.draw do
     get "edit_photos", to: "photos#edit_multiple", as: :edit_photos
     patch "update_photos", to: "photos#update_multiple", as: :update_photos
   end
+  # letter_opener_webの設定
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
