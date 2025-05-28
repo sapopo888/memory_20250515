@@ -43,6 +43,7 @@ ja:
       add_images: 画像の追加
       edit_images: 画像の編集
       delete: アルバム削除
+      click_to_turn_over_a_page: クリックしてページをめくってね！
     edit:
       title: アルバム編集
   photos:
