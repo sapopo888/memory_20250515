@@ -41,8 +41,17 @@ Rails.application.configure do
   # caching is enabled.
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: "localhost:3000", port: 3000 }
-  config.action_mailer.delivery_method = :letter_opener_web
+  # パスワードリセットのメールをgmailで送る設定
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "gmail.com",
+    port: 587,
+    user_name: ENV["MAILER_SENDER"],
+    password: ENV["MAILER_PASSWORD"],
+    authentication: :login
+  }
   config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
