@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center px-4 mb-4 font-bold text-gray-800">
     <div class="text-xl text-gray-800"><%= @album.title %></div>
   </div>
-  <div class="mb-2 space-x-4  text-gray-800">
+  <div class="mb-2 space-x-4  text-gray-800 text-lg">
     <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %></span>
     <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %></span>
     <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
