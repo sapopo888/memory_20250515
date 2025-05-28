@@ -1,4 +1,4 @@
-<div class="w-full bg-header h-40 flex flex-col justify-end">
+<div class="w-full bg-header h-28 flex flex-col justify-end">
   <% if user_signed_in? %>
     <div class="flex justify-between items-end px-4 md:px-16 pb-4">
       <!-- ロゴとタイトル -->
@@ -10,7 +10,7 @@
       </div>
 
       <!-- ナビゲーション -->
-      <div class="flex flex-col gap-0.5 md:flex-row items-center md:space-x-6 text-white text-lg md:text-xl relative mr-4">
+      <div class="flex flex-col gap-0.5 md:flex-row items-center md:space-x-6 text-white text-md md:text-xl relative mr-4">
         <%= link_to t('header.albums.new'), new_album_path, class: "hover:underline"  %>
         <%= link_to t('header.albums.index'), albums_path, class: "hover:underline" %>
 
