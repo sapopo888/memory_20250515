@@ -79,14 +79,14 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # パスワードリセットのメールをgmailで送る設定
-  config.action_mailer.default_url_options = { :host => 'https://memory-20250515.onrender.com' }
+  config.action_mailer.default_url_options = { host: "https://memory-20250515.onrender.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
-    domain: 'gmail.com',
+    domain: "gmail.com",
     port: 587,
-    user_name: ENV['MAILER_SENDER'],
-    password: ENV['MAILER_PASSWORD'],
+    user_name: ENV["MAILER_SENDER"],
+    password: ENV["MAILER_PASSWORD"],
     authentication: :login
   }
   # Ignore bad email addresses and do not raise email delivery errors.
