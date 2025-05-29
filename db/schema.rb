@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_05_18_155955) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_29_005225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "albums", force: :cascade do |t|
     t.string "title", null: false
@@ -26,11 +38,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_18_155955) do
   create_table "photos", force: :cascade do |t|
     t.json "images"
     t.text "comment"
+    t.bigint "user_id"
     t.bigint "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_hashes", default: [], array: true
     t.index ["album_id"], name: "index_photos_on_album_id"
+    t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +62,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_05_18_155955) do
 
   add_foreign_key "albums", "users"
   add_foreign_key "photos", "albums"
+  add_foreign_key "photos", "users"
 end
