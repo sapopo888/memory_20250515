@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: "admins/sessions"
   }
+  # 管理者のダッシュボード用のルーティング
+  namespace :admins do
+    get 'dashboard', to: 'dashboard#index'
+    resources :users
+  end
+
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations",
