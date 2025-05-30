@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    albums_path
+    if resource.is_a?(Admin)
+      admins_dashboard_path
+    else
+      albums_path
+    end
   end
 end
