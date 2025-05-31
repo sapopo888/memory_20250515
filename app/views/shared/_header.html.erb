@@ -1,5 +1,9 @@
 <div class="w-full bg-header h-28 flex flex-col justify-end">
   <% if admin_signed_in? %>
+    <div class="text-white border border-white rounded-lg font-bold text-lg px-2 w-1/12 ml-16">
+      <p class="ml-6">Admin</p>
+    </div>
+
     <div class="flex justify-between items-end px-4 md:px-16 pb-4">
       <!-- ロゴとタイトル -->
       <div class="flex items-end">
@@ -8,6 +12,7 @@
           Memory.
         <% end %>
       </div>
+
 
       <div class="flex flex-col gap-0.5 md:flex-row items-center md:space-x-6 text-white text-md md:text-xl relative mr-4">
         <%= link_to "ユーザー一覧", class: "hover:underline" %>
