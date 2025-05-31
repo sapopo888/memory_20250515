@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   # 管理者のダッシュボード用のルーティング
   namespace :admins do
-    get 'dashboard', to: 'dashboard#index'
+    get "dashboard", to: "dashboard#index"
     resources :users
   end
 
