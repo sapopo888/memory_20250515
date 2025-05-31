@@ -56,6 +56,10 @@ ja:
     edit_multiple:
       no_photos: 登録されている画像はありません
       title: 画像編集
+  admins:
+    header:
+      admin: 管理者
+      user_all: ユーザー一覧
 
   errors:
     messages:
