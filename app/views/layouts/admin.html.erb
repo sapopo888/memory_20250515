@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Myapp" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body>
+    <header>
+    <% if admin_signed_in? %>
+      <div class="w-full bg-pink-700 h-28 flex flex-col justify-end">
+        <div class="text-white border border-white rounded-lg font-bold text-lg px-2 w-1/12 ml-16">
+          <p class="ml-6"><%= t('admins.header.admin') %></p>
+        </div>
+        <div class="flex justify-between items-end px-4 md:px-16 pb-4">
+          <!-- ロゴとタイトル -->
+          <div class="flex items-end">
+            <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-2 md:mr-3 relative top-0.5 md:top-1" %>
+            <%= link_to admins_dashboard_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+              Memory.
+            <% end %>
+          </div>
+          <div class="flex flex-col gap-0.5 md:flex-row items-center md:space-x-6 text-white text-md md:text-xl relative mr-4">
+            <%= link_to t('admins.header.user_all'), class: "hover:underline" %>
+            <!-- ドロップダウン -->
+            <div class="relative">
+              <button id="js-myPage-button" class="focus:outline-none hover:underline">
+                <%= t('header.myPage') %>
+              </button>
+              <div id="js-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded shadow-lg py-2 z-10 hidden text-gray-800">
+                <div class="block px-4 py-2 text-blue-900 font-bold underline"><%= current_admin.email %> </div>
+                <%= link_to t('header.account'), class: "block px-4 py-2 hover:bg-gray-100" %>
+                <%= button_to t('header.logout'), destroy_admin_session_path, method: :delete, form: { data: { turbo: false } }, class: "block w-full text-left px-4 py-2 hover:bg-gray-100" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="w-full bg-pink-700 h-28 flex flex-col justify-end">
+        <div class="text-white border border-white rounded-lg font-bold text-lg px-2 w-1/12 ml-16">
+          <p class="ml-6"><%= t('admins.header.admin') %></p>
+        </div>
+        <div class="flex justify-between items-end px-4 md:px-16 pb-4">
+          <!-- ロゴとタイトル -->
+          <div class="flex items-end">
+            <%= image_tag 'ph_flower-lotus-fill.png', class: "h-10 w-10 md:h-12 md:w-12 mr-2 md:mr-3 relative top-0.5 md:top-1" %>
+            <%= link_to new_admin_session_path, class:"text-white text-3xl md:text-4xl font-extrabold" do %>
+              Memory.
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </header>
+
+    <!-- Deviseのflashメッセージ表示 -->
+    <% flash.each do |key, message| %>
+      <div class="bg-green-100 text-green-800 px-4 py-2 rounded shadow z-50">
+        <%= message %>
+      </div>
+    <% end %>
+
+    <main class="container mx-auto mt-24 px-5 flex">
+      <%= yield %>
+    </main>
+  </body>
+</html>
