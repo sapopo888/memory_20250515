@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @album = current_user.albums.find(params[:album_id])
     @photo = current_user.photos.new
