@@ -1,0 +1,36 @@
+<div class="w-full flex flex-col items-center">
+  <h1 class="text-2xl font-bold md:text-3xl mb-10 text-gray-800"><%= t('.title') %></h1>
+
+  <div class="px-6 mb-7 xl:w-2/3 w-full overflow-x-auto">
+    <% if @users.present? %>
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead>
+          <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left"><%= t('.name') %></th>
+            <th class="py-3 px-6 text-left"><%= t('.email') %></th>
+            <th class="py-3 px-6 text-left"><%= t('.created_at') %></th>
+            <th class="py-3 px-6 text-center"><%= t('.operation') %></th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700 text-sm">
+          <% @users.each do |user| %>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.name %></td>
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.email %></td>
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+              <td class="py-3 px-6 text-center">
+                <div class="flex whitespace-nowrap space-x-2">
+                  <%= link_to t('.detail'), admins_user_path(user), class: "inline-block bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold py-2 px-4 rounded" %>
+                  <%= link_to t('.edit'), edit_admins_user_path(user), class: "inline-block bg-green-500 hover:bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded" %>
+                  <%= link_to t('.delete'), admins_user_path(user), data: { turbo_method: :delete, turbo_confirm: '削除しますか？' }, class: "inline-block bg-red-500 hover:bg-red-600 text-white text-xs font-semibold py-2 px-4 rounded" %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="text-gray-600 text-lg text-center">ユーザーは存在しません。</p>
+    <% end %>
+  </div>
+</div>
