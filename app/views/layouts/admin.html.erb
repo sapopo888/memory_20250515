@@ -20,10 +20,7 @@
 
   <body>
     <header>
-      <!-- TOP画面のみヘッダー表示しない -->
-      <% unless controller_name == 'memories' && action_name == 'top' %>
-        <%= render 'users/shared/header' %>
-      <% end %>
+      <%= render 'admins/shared/header' %>
     </header>
 
     <!-- Deviseのflashメッセージ表示 -->
@@ -33,12 +30,7 @@
       </div>
     <% end %>
 
-    <!-- ヘッダー下の余白 -->
-    <% if controller_name == 'albums' && action_name == 'show' %>
-      <main class="container mx-auto mt-10 px-5 flex">
-    <% else %>
-      <main class="container mx-auto mt-24 px-5 flex">
-    <% end %>
+    <main class="container mx-auto mt-24 px-5 flex">
       <%= yield %>
     </main>
   </body>
