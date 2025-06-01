@@ -1,0 +1,26 @@
+<div class="w-full flex flex-col items-center">
+  <h1 class="text-2xl font-bold md:text-3xl mb-10 text-gray-800">ユーザー一覧</h1>
+
+  <div class="px-6 mb-7 xl:w-2/3 w-full overflow-x-auto">
+    <% if @users.present? %>
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead>
+          <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">名前</th>
+            <th class="py-3 px-6 text-left">アドレス</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700 text-sm">
+          <% @users.each do |user| %>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.name %></td>
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="text-gray-600 text-lg text-center">ユーザーは存在しません。</p>
+    <% end %>
+  </div>
+</div>
