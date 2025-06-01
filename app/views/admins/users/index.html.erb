@@ -8,7 +8,7 @@
           <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
             <th class="py-3 px-6 text-left">名前</th>
             <th class="py-3 px-6 text-left">アドレス</th>
-            <th class="py-3 px-6 text-left">登録日</th>
+            <th class="py-3 px-6 text-left">登録日時</th>
             <th class="py-3 px-6 text-center">操作</th>
           </tr>
         </thead>
@@ -17,7 +17,7 @@
             <tr class="border-b hover:bg-gray-50">
               <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.name %></td>
               <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.email %></td>
-              <td class="py-3 px-6 text-left whitespace-nowrap"><%= l(user.created_at.to_date, format: :default) %></td>
+              <td class="py-3 px-6 text-left whitespace-nowrap"><%= user.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
               <td class="py-3 px-6 text-center">
                 <%= link_to "詳細", admins_user_path(user), class: "inline-block bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold py-2 px-4 rounded" %>
                 <%= link_to "編集", edit_admins_user_path(user), class: "inline-block bg-green-500 hover:bg-green-600 text-white text-xs font-semibold py-2 px-4 rounded" %>
