@@ -15,11 +15,11 @@
             <%= album.description %>
           </p>
           <p class="text-sm text-gray-400 mt-2">
-            <%= t('albums.index.created_at') %>: <%= l(album.created_at.to_date, format: :default) %>
+            <%= t('albums.index.created_at') %>: <%= l album.created_at, format: :default %>
           </p>
           </p>
           <p class="text-sm text-gray-400 mt-2">
-            <%= t('albums.index.updated_at') %>: <%= l(album.updated_at.to_date, format: :default) %>
+            <%= t('albums.index.updated_at') %>: <%= l album.updated_at, format: :default %>
           </p>
           <!-- 編集アイコン（適宜ルーティング追加） -->
           <div class="flex justify-end pt-2">
