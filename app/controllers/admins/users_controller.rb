@@ -10,6 +10,6 @@ class Admins::UsersController < Admins::BaseController
   def destroy
     user = User.find(params[:id])
     user.destroy!
-    redirect_to admins_users_path, flash[:notice] = t('defaults.flash_message.deleted', item: User.model_name.human), status: :see_other
+    redirect_to admins_users_path, notice: t('defaults.flash_message.deleted', item: User.model_name.human), status: :see_other
   end
 end
