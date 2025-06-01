@@ -60,6 +60,17 @@ ja:
     header:
       admin: 管理者
       user_all: ユーザー一覧
+    users:
+      index:
+        title: ユーザー一覧
+        name: 名前
+        email: メールアドレス
+        created_at: 登録日時
+        operation: 操作
+        detail: 詳細
+        edit: 編集
+        delete: 削除
+        no_user: ユーザーはいません
 
   errors:
     messages:
