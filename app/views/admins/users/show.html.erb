@@ -1,20 +1,20 @@
 <div class="max-w-3xl mx-auto p-6 bg-white shadow rounded-md">
-  <h2 class="text-xl font-bold text-gray-800 mb-6">ユーザー詳細</h2>
+  <h2 class="text-xl font-bold text-gray-800 mb-6"><%= t('.title') %></h2>
 
   <div class="space-y-4 text-gray-700 text-base">
-    <p><strong>名前：</strong> <%= @user.name %></p>
-    <p><strong>メールアドレス：</strong> <%= @user.email %></p>
-    <p><strong>アルバム数：</strong> <%= @user.albums.count %></p>
-    <p><strong>画像数：</strong> <%= @user.photos.count %></p>
-    <p><strong>最終アルバム作成日：</strong>
+    <p><strong><%= t('.name') %>：</strong> <%= @user.name %></p>
+    <p><strong><%= t('.email') %>：</strong> <%= @user.email %></p>
+    <p><strong><%= t('.albums.count') %>：</strong> <%= @user.albums.count %></p>
+    <p><strong><%= t('.photos.count') %>：</strong> <%= @user.photos.count %></p>
+    <p><strong><%= t('.albums_last_created_at') %>：</strong>
       <% if @user.albums.any? %>
-        <%= @user.albums.last.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+        <%= l @user.albums.last.created_at, format: :default %></p>
       <% else %>
         -
       <% end %>
   </div>
 
   <div class="mt-6">
-    <%= link_to "一覧に戻る", admins_users_path, class: "inline-block bg-gray-500 hover:bg-gray-600 text-white text-sm px-4 py-2 rounded" %>
+    <%= link_to t('.back'), admins_users_path, class: "inline-block bg-gray-500 hover:bg-gray-600 text-white text-sm px-4 py-2 rounded" %>
   </div>
 </div>

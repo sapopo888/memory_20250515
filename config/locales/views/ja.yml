@@ -71,6 +71,14 @@ ja:
         edit: 編集
         delete: 削除
         no_user: ユーザーはいません
+      show:
+        title: ユーザー詳細
+        name: 名前
+        email: メールアドレス
+        albums_count: 全アルバム数
+        photos_count: 全画像数
+        albums_last_created_at: 最終アルバム作成日時
+        back: 一覧に戻る
 
   errors:
     messages:
