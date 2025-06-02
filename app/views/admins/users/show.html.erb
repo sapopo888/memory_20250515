@@ -4,8 +4,8 @@
   <div class="space-y-4 text-gray-700 text-base">
     <p><strong><%= t('.name') %>：</strong> <%= @user.name %></p>
     <p><strong><%= t('.email') %>：</strong> <%= @user.email %></p>
-    <p><strong><%= t('.albums.count') %>：</strong> <%= @user.albums.count %></p>
-    <p><strong><%= t('.photos.count') %>：</strong> <%= @user.photos.count %></p>
+    <p><strong><%= t('.albums_count') %>：</strong> <%= @user.albums.count %></p>
+    <p><strong><%= t('.photos_count') %>：</strong> <%= @user.photos.count %></p>
     <p><strong><%= t('.albums_last_created_at') %>：</strong>
       <% if @user.albums.any? %>
         <%= l @user.albums.last.created_at, format: :default %></p>
