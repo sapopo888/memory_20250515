@@ -26,8 +26,13 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      admin:
+        email: メールアドレス：
+        password: パスワード：
+        password_confirmation: パスワード（確認用）：
     models:
       user: ユーザー
+      admin: 管理者
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -107,8 +112,12 @@ ja:
         we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
       new:
         title: 会員登録
+        admin_title: 管理者アカウント作成
         sign_up: 会員登録
+        admin_sign_up: アカウント作成
+        placeholder: 6文字以上で設定してください
       signed_up: 会員登録が完了しました。
+      admin_sign_up: 管理者アカウントの作成に成功しました。
       signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
       signed_up_but_locked: アカウントがロックされているためログインできません。
       signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
@@ -147,3 +156,5 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+      confirmation: と一致しません。
+      too_short: は%{count}文字以上で入力してください。
