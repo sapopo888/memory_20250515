@@ -159,6 +159,7 @@ ja:
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
       confirmation: と一致しません。
       too_short: は%{count}文字以上で入力してください。
+      invalid: は無効です。確認メールのリンクが間違っているか、有効期限が切れている可能性があります。
   datetime:
     distance_in_words:
       x_minutes:
