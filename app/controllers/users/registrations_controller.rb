@@ -78,6 +78,11 @@ end
     devise_parameter_sanitizer.permit(:account_update, keys: [ :name ])
   end
 
+  # アカウント情報を編集した後の遷移先を指定
+  def after_update_path_for(resource)
+    albums_path
+  end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
