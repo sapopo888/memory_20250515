@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_flash_message! :notice, :signed_up
       sign_up(resource_name, resource)
 
-      UserMailer.welcome_email(resource).deliver_later # ここでWelcomeメール送信
+      UserMailer.welcome_email(resource).deliver_now # ここでWelcomeメール送信(非同期送信ならdeliver_later(ActiveJob + Sidekiqなどを使う場合）)
 
       respond_with resource, location: after_sign_up_path_for(resource)
     else

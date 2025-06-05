@@ -79,6 +79,13 @@ ja:
         photos_count: 全画像数
         albums_last_created_at: 最終アルバム作成日時
         back: 一覧に戻る
+  users:
+    user_mailer:
+      welcome_email:
+        greeting: "こんにちは、%{name}さん！"
+        thank_you: この度は【 Memory. 】アプリをご利用頂きありがとうございます。
+        completed_registration: 会員登録が完了しました。
+        login_instruction: ログインはこちら
 
   errors:
     messages:

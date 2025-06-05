@@ -1,8 +1,7 @@
-<p>こんにちは、<%= @user.name %>さん！</p>
+<p><%= t('users.user_mailer.welcome_email.greeting', name: @user.name) %></p>
 
-<p>この度は【 Memory. 】アプリをご利用頂きありがとうございます。</p>
+<p><%= t('users.user_mailer.welcome_email.thank_you') %></p>
 
-<p>会員登録が完了しました。</p>
+<p><%= t('users.user_mailer.welcome_email.completed_registration') %></p>
 
-<p>下記URLより、ログインしていただけます。</p>
-<p>https://memory-20250515.onrender.com/users/sign_in</p>
+<p><%= link_to t('users.user_mailer.welcome_email.login_instruction'), "https://memory-20250515.onrender.com/users/sign_in" %></p>
