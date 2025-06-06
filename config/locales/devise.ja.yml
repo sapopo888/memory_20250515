@@ -113,7 +113,8 @@ ja:
         title_admin: 管理者情報編集
         unhappy: 気に入りません
         update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を反映するには現在のパスワードを入力してください
+        we_need_your_current_password_to_confirm_your_changes: 変更を反映するには「現在のパスワード」の項目を入力してください。
+        leave_password_and_password_confirmation_blank_if_you_don't_want_to_change_them: パスワードを変更しない場合、「パスワード」「パスワード（確認）」の項目は空欄にしてください。
       new:
         title: 会員登録
         admin_title: 管理者アカウント作成

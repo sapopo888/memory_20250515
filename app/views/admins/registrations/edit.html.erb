@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col items-center">
-  <div class="font-semibold text-2xl md:text-3xl mb-6 text-gray-800">
+  <div class="font-semibold text-2xl md:text-3xl mb-2 text-gray-800">
     <%= t('devise.registrations.edit.title_admin') %>
   </div>
   
@@ -7,10 +7,10 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "admins/shared/error_messages", resource: resource %>
     
-      <p class="w-full text-gray-700 text-sm ml-8 mb-6 md:whitespace-nowrap">
-        ※ パスワードを変更しない場合、「パスワード」「パスワード（確認）」の項目は空欄にしてください。<br>
-        ※ <%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>
-      </p>
+      <div class="w-full text-gray-700 text-sm ml-8 md:whitespace-nowrap">
+        <div class="mb-2">※ <%= t('devise.registrations.edit.leave_password_and_password_confirmation_blank_if_you_don\'t_want_to_change_them') %></div>
+        <div class='mb-6'>※ <%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %></div>
+      </div>
 
       <div class="mb-6 flex items-center">
         <%= f.label :email, class: "w-full text-gray-700 text-lg md:text-xl pl-8" %>
