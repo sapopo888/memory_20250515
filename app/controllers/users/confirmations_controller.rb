@@ -16,7 +16,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # The path used after resending confirmation instructions.
   # def after_resending_confirmation_instructions_path_for(resource_name)
@@ -24,7 +24,12 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
+  # email変更時、認証メールのリンククリック後の遷移先を指定
+  def after_confirmation_path_for(resource_name, resource)
+    if user_signed_in?
+      edit_user_registration_path
+    else
+      new_session_path(resource_name)
+    end
+  end
 end
