@@ -12,7 +12,8 @@
   User.create!(name: Faker::Name.name,
               email: Faker::Internet.unique.email,
               password: "password",
-              password_confirmation: "password")
+              password_confirmation: "password",
+              confirmed_at: Time.current)
 end
 
 user_ids = User.ids
