@@ -161,6 +161,7 @@ ja:
       confirmation: と一致しません。
       too_short: は%{count}文字以上で入力してください。
       invalid: は無効です。確認メールのリンクが間違っているか、有効期限が切れている可能性があります。
+      taken: は既に使用されています。
   datetime:
     distance_in_words:
       x_minutes:
