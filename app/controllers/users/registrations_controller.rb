@@ -80,7 +80,7 @@ end
 
   # アカウント情報を編集した後の遷移先を指定
   def after_update_path_for(resource)
-    albums_path
+    edit_user_registration_path
   end
 
   # The path used after sign up.
