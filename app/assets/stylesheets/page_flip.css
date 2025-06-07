@@ -7,3 +7,9 @@
   padding: 70px;   /* ページの上下左右に余白をつける */
   box-sizing: border-box;  /* padding込みでページサイズを保つため */
 }
+
+.front-cover {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+}
