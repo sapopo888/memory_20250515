@@ -8,7 +8,7 @@
   box-sizing: border-box;  /* padding込みでページサイズを保つため */
 }
 
-.front-cover {
+.cover {
   width: 600px;
   height: 600px;
   object-fit: cover;
