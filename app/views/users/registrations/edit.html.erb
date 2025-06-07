@@ -11,7 +11,7 @@
 
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div class='text-orange-500 font-semibold text-center md:text-lg mb-4'><%= t('devise.registrations.edit.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+        <div class='text-green-600 font-semibold text-center md:text-lg mb-4'><%= t('devise.registrations.edit.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
       <% end %>
 
       <div class="w-full text-gray-700 text-sm ml-8 md:whitespace-nowrap">
