@@ -29,6 +29,7 @@ ja:
     myPage: マイページ
     san: さん
     account: 会員情報
+    admin_account: 管理者情報
     logout: ログアウト
   albums:
     new:
