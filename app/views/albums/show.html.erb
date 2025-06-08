@@ -9,9 +9,9 @@
   <div id="book">
     <div class="my-page" data-density="hard">
       <%= image_tag 'alex-lvrs-2zDw14yCYqk-unsplash.jpg', alt: "Cover", class: "cover w-full" %>
-      <div class='absolute inset-0 flex flex-col items-center justify-center mb-32'>
-        <h1 class='text-gray-700 font-semibold text-2xl'><%= @album.title %></h1>
-        <p class='text-gray-700'><%= @album.description%></p>
+      <div class='absolute inset-0 flex flex-col items-center justify-center mb-40'>
+        <h1 class='text-gray-700 font-semibold text-2xl border-b border-gray-400'><%= @album.title %></h1>
+        <p class='text-gray-700 mt-4'><%= @album.description%></p>
       </div>
     </div>
     <% if @photos.present? %>
