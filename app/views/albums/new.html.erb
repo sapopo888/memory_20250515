@@ -9,12 +9,12 @@
       <div>
         <label class='text-gray-700 text-lg md:text-xl pl-8'" >表示デザインを選んでください。</label>
 
-        <div class="flex space-x-8 cover_template">
+        <div class="flex space-x-8">
           <% { 'pink' => 'covers/pink.jpg', 'blue' => 'covers/blue.jpg', 'green' => 'covers/green.jpg' }.each do |name, path| %>
             <div>
               <label>
                 <%= radio_button_tag 'album[cover_template]', name, @album.cover_template == name, id: "cover_#{name}" %>
-                <%= image_tag path, alt: name, class: "w-full rounded border-2 #{'border-blue-500' if @album.cover_template == name}" %>
+                <%= image_tag path, alt: name, class: " cover_template w-full rounded border-2 #{'border-blue-500' if @album.cover_template == name}" %>
               </label>
             </div>
           <% end %>
