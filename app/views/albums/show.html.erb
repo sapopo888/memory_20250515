@@ -13,7 +13,15 @@
       when 'black' then 'covers/black.jpg'
   end %>
 
-  <div id="book">
+  <% background_color = case @album.cover_template
+    when 'pink' then '#FFEEFF'
+    when 'blue' then '#EEFFFF'
+    when 'green' then '#E6FFE9'
+    when 'black' then '#DDDDDD'
+    else '#EEEEEE'
+    end %>
+
+  <div id="book" style="background: <%= background_color %>;" >
     <div class="my-page" data-density="hard">
       <%= image_tag cover_path, alt: "Cover", class: "cover w-full" %>
 
