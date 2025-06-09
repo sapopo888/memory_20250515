@@ -18,17 +18,13 @@
       <%= image_tag cover_path, alt: "Cover", class: "cover w-full" %>
 
       <div class='absolute inset-0 flex flex-col items-center justify-center mb-40'>
-      <% if cover_path == 'covers/black.jpg' %>
-        <div class="rounded bg-gray-700">
-          <h1 class='text-white font-semibold text-2xl border-white border-b m-0.5'><%= @album.title %></h1>
-        </div>
-        <div class="rounded bg-gray-700">
-          <p class='text-white font-semibold m-0.5'><%= @album.description%></p>
-        </div>
-      <% else %>
-        <h1 class='text-gray-700 font-semibold text-2xl border-b border-gray-400'><%= @album.title %></h1>
-        <p class='text-gray-700 font-semibold mt-4'><%= @album.description%></p>
-      <% end %>
+        <% if cover_path == 'covers/black.jpg' %>
+          <h1 class='bg-black bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-black bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% else %>
+          <h1 class='text-gray-700 font-semibold text-2xl border-b border-gray-400'><%= @album.title %></h1>
+          <p class='text-gray-700 font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% end %>
       </div>
     </div>
     <% if @photos.present? %>
@@ -50,7 +46,11 @@
     <div class="my-page" data-density="hard">
       <%= image_tag cover_path, alt: "Back Cover", class: "cover w-full" %>
       <div class='absolute inset-0 flex items-center justify-center'>
-        <p class='text-gray-700 font-semibold text-2xl mb-32'>END</p>
+        <% if cover_path == 'covers/black.jpg' %>
+          <p class='bg-black bg-opacity-50 p-0.5 text-white rounded m-0.5 font-semibold text-2xl mb-32'>END</p>
+        <% else %>
+          <p class='text-gray-700 font-semibold text-2xl mb-32'>END</p>
+        <% end %>
       </div>
     </div>
   </div>
