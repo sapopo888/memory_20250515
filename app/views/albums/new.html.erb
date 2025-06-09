@@ -6,9 +6,19 @@
   <div class="rounded-lg w-full max-w-xl">
     <%= form_with model: @album, class: "space-y-6" do |f| %>
 
-      <div class='text-gray-700 text-lg md:text-xl pl-8'>
-        <label for="cover_template">表示デザインを選んでください。</label>
-        <%= f.select :cover_template, options_for_select([["ピンク", "pink"], ["青", "blue"], ["緑", "green"]]) %>
+      <div class=''>
+        <label class='text-gray-700 text-lg md:text-xl pl-8'" >表示デザインを選んでください。</label>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <% { 'pink' => 'covers/pink.jpg', 'blue' => 'covers/blue.jpg', 'green' => 'covers/green.jpg' }.each do |name, path| %>
+            <div>
+              <label>
+                <%= radio_button_tag 'album[cover_template]', name, @album.cover_template == name, id: "cover_#{name}" %>
+                <%= image_tag path, alt: name, class: "w-full rounded border-2 #{'border-blue-500' if @album.cover_template == name}" %>
+              </label>
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="mb-6 flex items-center">
