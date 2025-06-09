@@ -33,8 +33,17 @@
         <% if cover_path == 'covers/black.jpg' %>
           <h1 class='bg-black bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
           <p class='bg-black bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/pink.jpg' %>
+          <h1 class='bg-pink-600 bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-pink-600 bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/blue.jpg' %>
+          <h1 class='bg-blue-800 bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-blue-800 bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/white.jpg' %>
+          <h1 class='text-black font-semibold text-2xl border-black border-b'><%= @album.title %></h1>
+          <p class='text-black font-semibold mt-4 text-lg'><%= @album.description%></p>
         <% else %>
-          <h1 class='text-white font-semibold text-2xl border-b border-gray-400'><%= @album.title %></h1>
+          <h1 class='text-white font-semibold text-2xl border-b border-white'><%= @album.title %></h1>
           <p class='text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
         <% end %>
       </div>
@@ -60,6 +69,8 @@
       <div class='absolute inset-0 flex items-center justify-center'>
         <% if cover_path == 'covers/black.jpg' %>
           <p class='bg-black bg-opacity-50 p-0.5 text-white rounded m-0.5 font-semibold text-2xl mb-32'>END</p>
+        <% elsif cover_path == 'covers/white.jpg' %>
+          <p class='text-black rounded m-0.5 font-semibold text-2xl mb-32'>END</p>
         <% else %>
           <p class='text-white font-semibold text-2xl mb-32'>END</p>
         <% end %>
