@@ -7,10 +7,12 @@
   <p class="mb-2 text-sm text-gray-800">※<%= t('.click_to_turn_over_a_page') %></p>
 
   <% cover_path = case @album.cover_template
-      when 'pink' then 'covers/pink.jpg'
-      when 'blue' then 'covers/blue.jpg'
-      when 'green' then 'covers/green.jpg'
-      when 'black' then 'covers/black.jpg'
+    when 'pink' then 'covers/pink.jpg'
+    when 'blue' then 'covers/blue.jpg'
+    when 'green' then 'covers/green.jpg'
+    when 'black' then 'covers/black.jpg'
+    when 'white' then 'covers/white.jpg'
+    else 'covers/star.jpg'
   end %>
 
   <% background_color = case @album.cover_template
@@ -18,8 +20,9 @@
     when 'blue' then '#EEFFFF'
     when 'green' then '#E6FFE9'
     when 'black' then '#DDDDDD'
-    else '#EEEEEE'
-    end %>
+    when 'white' then '#EEEEEE'
+    else '#BAD3FF'
+  end %>
 
   <div id="book" style="background: <%= background_color %>;" >
     <div class="my-page" data-density="hard">
