@@ -10,7 +10,7 @@
         <label class='text-gray-700 text-lg md:text-xl pl-8'" >表示デザインを選んでください。</label>
 
         <div class="flex w-full justify-between pl-8">
-          <% { 'pink' => 'covers/pink.jpg', 'blue' => 'covers/blue.jpg', 'green' => 'covers/green.jpg' }.each do |name, path| %>
+          <% { 'pink' => 'covers/pink.jpg', 'blue' => 'covers/blue.jpg', 'green' => 'covers/green.jpg', 'black' => 'covers/black.jpg' }.each do |name, path| %>
             <div>
               <label>
                 <%= radio_button_tag 'album[cover_template]', name, @album.cover_template == name, id: "cover_#{name}" %>
