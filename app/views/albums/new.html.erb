@@ -3,8 +3,13 @@
     <%= t('albums.new.title') %>
   </div>
 
-  <div class="rounded-lg w-full max-w-xl p-8">
+  <div class="rounded-lg w-full max-w-xl">
     <%= form_with model: @album, class: "space-y-6" do |f| %>
+
+      <div class='text-gray-700 text-lg md:text-xl pl-8'>
+        <label for="cover_template">表示デザインを選んでください。</label>
+        <%= f.select :cover_template, options_for_select([["ピンク", "pink"], ["青", "blue"], ["緑", "green"]]) %>
+      </div>
 
       <div class="mb-6 flex items-center">
         <%= f.label :title, class: "w-1/3 text-gray-700 text-lg md:text-xl pl-8" %>
