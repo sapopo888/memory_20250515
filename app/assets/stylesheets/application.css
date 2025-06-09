@@ -19,10 +19,3 @@
 .field_with_errors {
   display: contents;
 }
-
-.cover_template {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  overflow: hidden;
-}
