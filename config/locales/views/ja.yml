@@ -29,6 +29,7 @@ ja:
     myPage: マイページ
     san: さん
     account: 会員情報
+    admin_account: 管理者情報
     logout: ログアウト
   albums:
     new:
@@ -39,7 +40,7 @@ ja:
       updated_at: 更新日
       no_album: アルバムはありません
     show:
-      edit: アルバム編集
+      edit_album: アルバム編集
       add_images: 画像の追加
       edit_images: 画像の編集
       delete: アルバム削除

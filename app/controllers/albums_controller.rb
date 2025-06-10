@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
   def update
     @album = current_user.albums.find(params[:id])
     if @album.update(album_params)
-      redirect_to albums_path, status: :see_other, notice: t("defaults.flash_message.updated", item: Album.model_name.human)
+      redirect_to album_path(@album), status: :see_other, notice: t("defaults.flash_message.updated", item: Album.model_name.human)
     else
       flash.now[:alert] = t("defaults.flash_message.not_updated", item: Album.model_name.human)
       render :edit, status: :unprocessable_entity
@@ -47,6 +47,6 @@ class AlbumsController < ApplicationController
   private
 
   def album_params
-    params.require(:album).permit(:title, :description)
+    params.require(:album).permit(:title, :description, :cover_template)
   end
 end

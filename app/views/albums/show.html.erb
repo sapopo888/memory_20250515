@@ -1,23 +1,43 @@
 <div class="w-full flex flex-col items-center">
-  <div class="flex justify-between items-center px-4 mb-4 font-bold text-gray-800">
-    <div class="text-xl text-gray-800"><%= @album.title %></div>
-  </div>
   <div class="mb-2 space-x-4  text-gray-800 text-lg">
-    <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %></span>
-    <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %></span>
-    <span class="hover:border-b hover:border-blue-400 hover:font-semibold"><%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %></span>
+    <%= link_to t('albums.show.edit_album'), edit_album_path(@album) %>
+    <%= link_to t('albums.show.add_images'), new_album_photo_path(@album) %>
+    <%= link_to t('albums.show.edit_images'), album_edit_photos_path(@album) %>
+    <%= link_to t('albums.show.delete'), album_path(@album), data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm')} %>
   </div>
   <p class="mb-2 text-sm text-gray-800">※<%= t('.click_to_turn_over_a_page') %></p>
 
+  <% cover_path = cover_image_path(@album.cover_template) %>
+  <% bg_class = background_class(@album.cover_template) %>
+
   <div id="book">
     <div class="my-page" data-density="hard">
-      <%= image_tag '600*600_top_cover.jpg', alt: "Cover", class: "w-full" %>
+      <%= image_tag cover_path, alt: "Cover", class: "cover w-full" %>
+
+      <div class='absolute inset-0 flex flex-col items-center justify-center mb-40'>
+        <% if cover_path == 'covers/black.jpg' %>
+          <h1 class='bg-black bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-black bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/pink.jpg' %>
+          <h1 class='bg-pink-600 bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-pink-600 bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/blue.jpg' %>
+          <h1 class='bg-blue-800 bg-opacity-50 p-0.5 text-white font-semibold text-2xl border-white border-b'><%= @album.title %></h1>
+          <p class='bg-blue-800 bg-opacity-50 p-0.5 text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% elsif cover_path == 'covers/white.jpg' %>
+          <h1 class='text-black font-semibold text-2xl border-black border-b'><%= @album.title %></h1>
+          <p class='text-black font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% else %>
+          <h1 class='text-white font-semibold text-2xl border-b border-white'><%= @album.title %></h1>
+          <p class='text-white font-semibold mt-4 text-lg'><%= @album.description%></p>
+        <% end %>
+      </div>
     </div>
     <% if @photos.present? %>
       <% @photos.each do |photo| %>
         <% if photo.images.present? %>
           <% photo.images.each do |image| %>
-            <div class="my-page contents flex flex-col items-center px-8 py-8" data-density="hard">
+            <div class="my-page contents flex flex-col items-center px-8 py-8 <%= bg_class %>" data-density="hard">
               <div class="w-full flex justify-center">
                 <%= image_tag image.url, class: "max-h-[400px] object-contain" %>
               </div>
@@ -30,7 +50,16 @@
       <% end %>
     <% end %>
     <div class="my-page" data-density="hard">
-      <%= image_tag '600*600_back_cover.jpg', alt: "Back Cover", class: "w-full" %>
+      <%= image_tag cover_path, alt: "Back Cover", class: "cover w-full" %>
+      <div class='absolute inset-0 flex items-center justify-center'>
+        <% if cover_path == 'covers/black.jpg' %>
+          <p class='bg-black bg-opacity-50 p-0.5 text-white rounded m-0.5 font-semibold text-2xl mb-32'>END</p>
+        <% elsif cover_path == 'covers/white.jpg' %>
+          <p class='text-black rounded m-0.5 font-semibold text-2xl mb-32'>END</p>
+        <% else %>
+          <p class='text-white font-semibold text-2xl mb-32'>END</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
