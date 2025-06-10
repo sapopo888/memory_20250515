@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
       albums_path
     end
   end
+
+  # email変更時、認証メールのリンククリック後の遷移先を指定
+  def after_confirmation_path_for(resource_name, resource)
+    if resource.is_a?(Admin)
+      edit_admin_registration_path
+    else
+      edit_user_registration_path
+    end
+  end
 end
