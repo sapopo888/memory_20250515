@@ -16,16 +16,18 @@
     else 'covers/star.jpg'
   end %>
 
-  <% background_color = case @album.cover_template
-    when 'pink' then '#FFEEFF'
-    when 'blue' then '#EEFFFF'
-    when 'green' then '#E6FFE9'
-    when 'black' then '#DDDDDD'
-    when 'white' then '#EEEEEE'
-    else '#BAD3FF'
+  <% background_class = case @album.cover_template
+    when 'pink' then 'bg-pink-100'
+    when 'blue' then 'bg-blue-100'
+    when 'green' then 'bg-green-100'
+    when 'black' then 'bg-black/10'
+    when 'white' then 'bg-gray-100'
+    else 'bg-sky-100'
   end %>
 
-  <div id="book" style="background: <%= background_color %>;" >
+
+
+  <div id="book">
     <div class="my-page" data-density="hard">
       <%= image_tag cover_path, alt: "Cover", class: "cover w-full" %>
 
@@ -52,7 +54,7 @@
       <% @photos.each do |photo| %>
         <% if photo.images.present? %>
           <% photo.images.each do |image| %>
-            <div class="my-page contents flex flex-col items-center px-8 py-8" data-density="hard">
+            <div class="my-page contents flex flex-col items-center px-8 py-8 <%= background_class %>" data-density="hard">
               <div class="w-full flex justify-center">
                 <%= image_tag image.url, class: "max-h-[400px] object-contain" %>
               </div>
