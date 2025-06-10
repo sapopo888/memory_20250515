@@ -7,25 +7,8 @@
   </div>
   <p class="mb-2 text-sm text-gray-800">※<%= t('.click_to_turn_over_a_page') %></p>
 
-  <% cover_path = case @album.cover_template
-    when 'pink' then 'covers/pink.jpg'
-    when 'blue' then 'covers/blue.jpg'
-    when 'green' then 'covers/green.jpg'
-    when 'black' then 'covers/black.jpg'
-    when 'white' then 'covers/white.jpg'
-    else 'covers/star.jpg'
-  end %>
-
-  <% background_class = case @album.cover_template
-    when 'pink' then 'bg-pink-100'
-    when 'blue' then 'bg-blue-100'
-    when 'green' then 'bg-green-100'
-    when 'black' then 'bg-black/10'
-    when 'white' then 'bg-gray-100'
-    else 'bg-sky-100'
-  end %>
-
-
+  <% cover_path = cover_image_path(@album.cover_template) %>
+  <% bg_class = background_class(@album.cover_template) %>
 
   <div id="book">
     <div class="my-page" data-density="hard">
@@ -54,7 +37,7 @@
       <% @photos.each do |photo| %>
         <% if photo.images.present? %>
           <% photo.images.each do |image| %>
-            <div class="my-page contents flex flex-col items-center px-8 py-8 <%= background_class %>" data-density="hard">
+            <div class="my-page contents flex flex-col items-center px-8 py-8 <%= bg_class %>" data-density="hard">
               <div class="w-full flex justify-center">
                 <%= image_tag image.url, class: "max-h-[400px] object-contain" %>
               </div>
