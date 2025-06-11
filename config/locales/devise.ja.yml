@@ -56,7 +56,7 @@ ja:
       confirmation_instructions:
         action: メールアドレスの確認
         greeting: "こんにちは、%{recipient}さん"
-        instruction: 72時間以内に以下のリンクをクリックし、メールアドレスの変更手続を完了させてください。
+        instruction: 24時間以内に以下のリンクをクリックし、メールアドレスの変更手続を完了させてください。
         subject: 【 Memory. 】メールアドレス変更手続き
         confirm_account: メールアドレスを変更する
       email_changed:
