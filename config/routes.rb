@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
-    registrations: "admins/registrations"
+    registrations: "admins/registrations",
+    passwords: "admins/passwords"
   }
   # 管理者のダッシュボード用のルーティング
   namespace :admins do
