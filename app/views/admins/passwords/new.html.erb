@@ -5,7 +5,7 @@
   
   <div class="rounded-lg w-full max-w-xl p-8">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
+      <%= render "admins/shared/error_messages", resource: resource %>
     
       <div class="mb-12 flex items-center">
         <%= f.label :email, class: "w-full text-gray-700 text-md md:text-xl" %>
